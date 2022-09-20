@@ -10,7 +10,44 @@ const getCV = (req, res) => {
     edus.push(educations[key]);
   }
 
-  res.render("cv", { name: "Tasnim Ahmed", educations: edus });
+  experience = fs.readFileSync("data/experience", { encoding: "utf-8" });
+  experience = JSON.parse(String(experience));
+
+  expe = [];
+
+  for (let key in experience) {
+    expe.push(experience[key]);
+  }
+
+  skill = fs.readFileSync("data/skill", { encoding: "utf-8" });
+  skill = JSON.parse(String(skill));
+
+  skl = [];
+
+  for (let key in skill) {
+    skl.push(skill[key]);
+  }
+
+  const username = req.body.username;
+  const email = req.body.email;
+  const profession = req.body.profession;
+  const place = req.body.place;
+  const phonenumber = req.body.phonenumber;
+
+  if (username === null) {
+    username = "Abir";
+  }
+
+  res.render("cv", {
+    name: username,
+    profession: profession,
+    place: place,
+    email: email,
+    phonenumber: phonenumber,
+    educations: edus,
+    experience: expe,
+    skill: skl,
+  });
 };
 
 module.exports = { getCV: getCV };
