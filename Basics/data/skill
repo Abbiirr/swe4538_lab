@@ -1,0 +1,18 @@
+{
+  "1": {
+    "name": "Adobe Photoshop",
+    "progress": "90%"
+  },
+  "2": {
+    "name": "Photography",
+    "progress": "80%"
+  },
+  "3": {
+    "name": "Illustrator",
+    "progress": "75%"
+  },
+  "4": {
+    "name": "Media",
+    "progress": "50%"
+  }
+}
